@@ -17,6 +17,10 @@ import java.util.List;
 public class EmailController {
     private final EmailService emailService;
 
+    public EmailController(EmailService emailService) {
+        this.emailService = emailService;
+    }
+
     @PostMapping("sendBulk")
     public ApiResponse sendBulkEmail(@RequestBody List<EmailDto> emailList) throws MessagingException {
         return emailService.sendBulkEmail(emailList);
